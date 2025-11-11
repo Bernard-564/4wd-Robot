@@ -29,5 +29,18 @@ empty_array = np.empty((2,2))
 #print(empty_array)
 
 
-eye_array = np.eye(4)
-print(eye_array)
+eye_array = np.eye(4, k=-1)
+eye_array[eye_array == 0] = 4
+eye_array[eye_array < 2] = 9
+eye_array[3:] = 7
+#eye_array[:2] = 8
+eye_array[2:, :2] = 6
+print(eye_array, "\n")
+
+sorted_array = np.sort(eye_array, axis=0)
+print(sorted_array)
+
+#copying arrays
+array_copy = eye_array.copy()
+array_view = eye_array.view()
+print(array_copy)
